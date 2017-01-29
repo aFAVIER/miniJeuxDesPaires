@@ -61,7 +61,7 @@ $('img').dblclick(function antiJulien(){
 //empêche le Julien Malin de clic droit sur les images pour les afficher dans un nv onglet
 $(document).on('contextmenu', 'img', function(e) {
     e.preventDefault();
-    $("#message").text("Fonction Anti Julien Activated for right-click");
+    $("#message").text("Anti Julien Function Activated for right-click");
     return false;
 
 });
