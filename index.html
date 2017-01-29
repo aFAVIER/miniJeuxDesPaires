@@ -9,56 +9,63 @@
 	<body>
 		<h1 class="row">JEUX DES PAIRES</h1>
 		<div id="message" class="text-center"></div>
-		<table class="row">
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td class="card_game" id='car1'><img class='img_all ane' id="img1" value='ane'  src="img/ane.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car2'><img class='img_all chien' id="img2" value='chien' src="img/chien.jpg"></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td class="card_game" id='car3'><img class='img_all chat' id="img3" value='chat' src="img/chat.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car4'><img class='img_all lama id="img4" value='lama' src="img/lama.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car5'><img class='img_all ane' id="img5" value='ane'  src="img/ane.jpg"></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="card_game" id='car6'><img class='img_all chat' id="img6" value='chat' src="img/chat.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car7'><img class='img_all ours' id="img7" value='ours' src="img/ours.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car8'><img class='img_all lapins' id="img8" value='lapins' src="img/lapins.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car9'><img class='img_all ours' id="img9" value='ours' src="img/ours.jpg"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td class="card_game" id='car10'><img class='img_all chien' id="img10" value='chien' src="img/chien.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car11'><img class='img_all lama' id="img11" value='lama' src="img/lama.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car12'><img class='img_all lionne' id="img12" value='lionne' src="img/lionne.jpg"></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td class="card_game" id='car13'><img class='img_all lapins' id="img13" value='lapins' src="img/lapins.jpg"></td>
-					<td></td>
-					<td class="card_game" id='car14'><img class='img_all lionne' id="img14" value='lionne' src="img/lionne.jpg"></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-
+		<div class="row">
+			<button id="start" class="btn btn-danger text-center col-md-offset-4 col-md-2 "><b>START</b></button>
+			<button id="restart" class="btn btn-warning text-center col-md-2"><b>RESTART</b></button>
+		</div>
+		<div  class="container">
+			
+				<table>
+					<tbody class="row center-block">
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="card_game" id='car1'><img class='ane' id="img1" value='ane'  src="img/ane.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car2'><img class='chien' id="img2" value='chien' src="img/chien.jpg"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="card_game" id='car3'><img class='chat' id="img3" value='chat' src="img/chat.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car4'><img class='lama' id="img4" value='lama' src="img/lama.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car5'><img class='ane' id="img5" value='ane'  src="img/ane.jpg"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="card_game" id='car6'><img class='chat' id="img6" value='chat' src="img/chat.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car7'><img class='ours' id="img7" value='ours' src="img/ours.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car8'><img class='lapins' id="img8" value='lapins' src="img/lapins.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car9'><img class='ours' id="img9" value='ours' src="img/ours.jpg"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="card_game" id='car10'><img class='chien' id="img10" value='chien' src="img/chien.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car11'><img class='lama' id="img11" value='lama' src="img/lama.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car12'><img class='lionne' id="img12" value='lionne' src="img/lionne.jpg"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="card_game" id='car13'><img class='lapins' id="img13" value='lapins' src="img/lapins.jpg"></td>
+							<td></td>
+							<td class="card_game" id='car14'><img class='lionne' id="img14" value='lionne' src="img/lionne.jpg"></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			
+		</div>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 		<script type="text/javascript" src='js/jquery-3.1.1.js'></script>
 		<script type="text/javascript" src='js/script.js'></script>

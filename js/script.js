@@ -1,87 +1,94 @@
-// global class : card_game
-//id : car# ==> # num de chaque carte
-// class img_all //// id : img#
 
+  //////////////////////////////////////////
+ //-----------------LISTES---------------//
+//////////////////////////////////////////
+var liste=['ane', 'chien', 'chat', 'lama', 'lionne', 'ours', 'lapins'];
   //////////////////////////////////////////
  //------DECLARATION DES VARIABLES-------//
 //////////////////////////////////////////
-var image1 = 0;
-var image2 = 500;
-//ou avec un tableau et on compare 2 index
 var tab = new Array;
-
+var tabOpacity = new Array;
   //////////////////////////////////////////
  //-------CARTES ETAT BASIQUE------------//
 //////////////////////////////////////////
-$('.img_all').css('opacity', '0');
-$('.card_game').css('background-color', '#FF6111')	
-
-$('.img_all').on('mouseup', function init(){
-	$('.img_all').css('opacity', '0');
-	$('.card_game').css('background-color', '#FF6111')
-});
-
-
+$('img').css('display', 'none');
+$('#start').on("click", function start_btn(){
+	$('img').css('display', 'block');
+	$('img').css('opacity', '0');
+	$('#message').text("");
+	$('.card_game').css('background-color', '#FF6111');	
+})
+   //////////////////////////////////////////
+  //----------------RESTART---------------//
+ //////////////////////////////////////////
+$('#restart').on('click', function(){
+	location.reload(true);
+	$('img').css('opacity', '0');
+	$('img').css('display', 'none');
+})
+  //////////////////////////////////////////
+ //-----------------INIT-----------------//
+//////////////////////////////////////////
+function initDebutClic(){
+	for (var y = 0; y < liste.length; y++) {
+		$('.'+liste[y]).css('opacity', '0')	//boucle pour caché les élément de la liste
+	}
+	$('#message').text("");				//reinit du message a 0
+		if (tab.length >= 2) { 			//limitation de la taille du tab à 2 entrées
+			tab=new Array;
+		}
+}
+  //////////////////////////////////////////
+ //------------------OPACITY-------------//
+//////////////////////////////////////////
+function opacityImg(){
+	for (var l = 0; l < tabOpacity.length; l++) {
+		for (var j = 0; j < tabOpacity[l].length; j++) {
+			$('.'+tabOpacity[l][j]).css('opacity', '1');
+		}
+	}
+}
+opacityImg();
    //////////////////////////////////////////
   //----------------AU CLIC---------------//
  //////////////////////////////////////////
-$('.img_all').each(function click(){
-	$(this).mousedown(function(){
-		$('#message').text("");//reinit du message a 0
-		$(this).css('opacity', '1');//montre l'image
-		if (tab.length >= 2) { //limitation de la taille du tab à 2 entrées
-			tab=new Array;
-		}
+$('img').each(function click(){
+	$(this).click(function(){
+	//init avec appel de la fonction
+		initDebutClic();
+		$(this).fadeTo('2000', '1');
 	//ajoute le le lien de l'image dans le tableau (pour la comparaison)
-		tab.push($(this).attr('class')); //Je pense que c'est dégueux, MAIS c'est moi qui l'ai fait!!!!
-		console.log(tab);
+		tab.push($(this).attr('class'));
+	//pour voir ce qu'il se passe
+																		console.log(tab);
 	//comparaison des 2 cartes
 		if (tab[0]===tab[1] && tab.length>=2) {
-			//$('tab[0]').css('display', 'none');
-			
-			//console.log(this);
-			//console.log('for_if_ok');
 			$("#message").text("Paire Réussis !!!");
-
+			$('.'+tab[0]).attr('onclick','').unbind('click');
+			tabOpacity.push(tab);
+																		console.log(liste);
+			liste.splice( $.inArray(tab[0], liste), 1 );//je cherche dans le tableau et supprime la correspondance
+																		console.log(liste);
+			opacityImg();
 		}
 		if(tab[0]!=tab[1] && tab.length>=2){
-			console.log('else_if');
-			$("#message").text("NOPE !!!");
+			$("#message").text("NOPE !!!");	
+			for (var i = 0; i < tab.length; i++) {
+				$('.'+tab[i]).css('opacity', '0');
+			}
+			opacityImg();	
 		}
 	});
 })
 
-   //////////////////////////////////////////
-  //-------------FONCTION PAIRE-----------//
- //////////////////////////////////////////
-// si image 1 = image2
-// alors opacité des 2 images = 1
-// image 1 = 0 et image2 = 500 (réinit des var du début)
-// message de réussite
 
-//je compare avec la longueur du tableau pour être sur qu'il y a quelques chose dedans!!!!!!!
-//function paire(){
-	/*if (tab[0]!==tab[1] ) { //!!!!!!!!!!probleme pour rentrer dans la condition!!!!!!!!!!
-		
-		//$('image1').unbind("click");
-		//$('image2').unbind("click");
-		//alert('paire');
-		console.log(yo);
-	}*/
 
-		
 
-	
-//}
-//paire();
   //////////////////////////////////////////
- //-------------TEST MESSAGE-------------//
+ //----fonctionnement---LISTES-----------//
 //////////////////////////////////////////
-/*
-$('#img1').on('click', function(){
-	$("#message").text("Paire Réussis !!!").delay(5000).fadeOut('slow', 0.6, function() {
-    // c'est le callback, l'animation est terminée
-    $(this).fadeIn().empty();
-	})
-})
-*/
+// a chaque fois que je fais une paire
+//j'enlève l'enlève du tableau
+//et je fais opacity 0 au tableau
+//
+
