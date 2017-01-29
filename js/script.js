@@ -49,6 +49,22 @@ function opacityImg(){
 	}
 }
 opacityImg();
+
+  //////////////////////////////////////////
+ //--------------ANTI JULIEN-------------//
+//////////////////////////////////////////
+$('img').dblclick(function antiJulien(){
+	alert('Anti Julien Function Activated');
+	location.reload(true);
+});
+
+//empêche le Julien Malin de clic droit sur les images pour les afficher dans un nv onglet
+$(document).on('contextmenu', 'img', function(e) {
+    e.preventDefault();
+    $("#message").text("Fonction Anti Julien Activated for right-click");
+    return false;
+
+});
    //////////////////////////////////////////
   //----------------AU CLIC---------------//
  //////////////////////////////////////////
@@ -59,6 +75,7 @@ $('img').each(function click(){
 		$(this).fadeTo('2000', '1');
 	//ajoute le le lien de l'image dans le tableau (pour la comparaison)
 		tab.push($(this).attr('class'));
+
 	//pour voir ce qu'il se passe
 																		console.log(tab);
 	//comparaison des 2 cartes
@@ -70,6 +87,7 @@ $('img').each(function click(){
 			liste.splice( $.inArray(tab[0], liste), 1 );//je cherche dans le tableau et supprime la correspondance
 																		console.log(liste);
 			opacityImg();
+			win();
 		}
 		if(tab[0]!=tab[1] && tab.length>=2){
 			$("#message").text("NOPE !!!");	
@@ -82,6 +100,14 @@ $('img').each(function click(){
 })
 
 
+
+
+function win(){
+		if (liste.length <= 0) {
+		//alert('BRAVO');
+		$('#message').append('        BRAVO!!!!');
+	}
+}
 
 
   //////////////////////////////////////////
